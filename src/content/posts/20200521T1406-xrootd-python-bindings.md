@@ -2,8 +2,6 @@
 title: XRootD python bindings from source
 date: 2020-05-21T14:06:00+02:00
 ---
-# XRootD python bindings from source
-
 When xrootd has been already installed on cluster, but you need xrootd-python bindings in your virtualenv, it might be
 complicated to use system version (if it is present :) ).
 

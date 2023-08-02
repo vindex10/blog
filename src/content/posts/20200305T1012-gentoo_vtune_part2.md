@@ -4,8 +4,6 @@ date: 2020-03-05T10:12:00+02:00
 tags:
     - gentoo
 ---
-# Installing intel vtune profiler on Gentoo. Part 2 (GUI)
-
 Previous post: [Installing intel vtune profiler on Gentoo]({{< ref "20200302T1750-gentoo_vtune.md" >}})
 
 In the previous post we learned how to install CLI version of `vtune`. The thing is that CLI version is useless without
