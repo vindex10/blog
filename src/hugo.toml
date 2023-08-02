@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://vindex10.github.io/blog'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = "Victor's Cave"
 theme = 'hugo-PaperMod-7.0'
