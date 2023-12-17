@@ -1,0 +1,4 @@
+[submodule "src/themes/papermod"]
+	path = src/themes/papermod
+	url = ./
+	branch = theme-papermod-release-v7.0

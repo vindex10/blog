@@ -41,6 +41,10 @@ jobs:
       - name: Install Dart Sass
         run: sudo snap install dart-sass
       - name: Checkout
+        env:
+          GIT_CONFIG_COUNT: 1
+          GIT_CONFIG_KEY_0: protocol.file.allow
+          GIT_CONFIG_VALUE_0: always
         uses: actions/checkout@v3
         with:
           submodules: recursive

@@ -1,7 +1,7 @@
 baseURL: https://cave.vindex10.me
 languageCode: en-us
 title: Victor's Cave
-theme: hugo-PaperMod-7.0
+theme: papermod 
 menu:
   main:
     - identifier: posts
