@@ -15,4 +15,4 @@ menu:
 params:
   cover:
     responsiveImages: true
-    linkFullImages: true
+    linkFullImages: post
