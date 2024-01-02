@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{- /* Deprecate site.Author.email in favor of site.Params.author.email */}}
 {{- $authorEmail := "" }}
 {{- with site.Params.author }}
@@ -30,18 +31,23 @@
   {{- end }}
 {{- end }}
 
-{{- $pctx := . }}
-{{- if .IsHome }}{{ $pctx = site }}{{ end }}
-{{- $pages := slice }}
-{{- if or $.IsHome $.IsSection }}
-{{- $pages = $pctx.RegularPages }}
-{{- else }}
-{{- $pages = $pctx.Pages }}
-{{- end }}
-{{- $limit := site.Config.Services.RSS.Limit }}
-{{- if ge $limit 1 }}
-{{- $pages = $pages | first $limit }}
-{{- end }}
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- $defaultTaxonomies := slice }}
+{{- range $taxonomy, $v := site.Taxonomies}}
+  {{- $defaultTaxonomies = $defaultTaxonomies | append $taxonomy }}
+{{- end}}
+>>>>>>> acb0a4e (backport show tags in rss)
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
@@ -63,17 +69,23 @@
     <lastBuildDate>{{ (index $pages.ByLastmod.Reverse 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
     {{- with .OutputFormats.Get "RSS" }}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
-    {{- end }}
-    {{- range $pages }}
+    {{- end -}}
+    {{ range $page := $pages }}
     {{- if and (ne .Layout `search`) (ne .Layout `archives`) }}
     <item>
-      <title>{{ .Title }}</title>
-      <link>{{ .Permalink }}</link>
-      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
-      <guid>{{ .Permalink }}</guid>
-      <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
-      {{- $isCoverHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
+      <title>{{ $page.Title }}</title>
+      <link>{{ $page.Permalink }}</link>
+      <pubDate>{{ $page.Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{ with site.Author.email }}<author>{{.}}{{ with site.Author.name }} ({{.}}){{end}}</author>{{end}}
+      <guid>{{ $page.Permalink }}</guid>
+      {{- $taxonomies := (site.Params.TaxonomiesInRSS | default $defaultTaxonomies ) }}
+      {{- range $taxonomy := $taxonomies }}
+        {{- range $tag := ($page.GetTerms $taxonomy) }}
+          <category domain="{{ $taxonomy }}">{{ $tag.LinkTitle }}</category>
+        {{- end }}
+      {{- end }}
+      <description>{{ with $page.Description | html }}{{ . }}{{ else }}{{ $page.Summary | html }}{{ end -}}</description>
+      {{- $isCoverHidden := $page.Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
       {{- $cover := (partial "cover.html" (dict "cxt" . "IsSingle" false "IsHome" false "isHidden" $isCoverHidden)) -}}
       {{- if (or $cover site.Params.ShowFullTextinRSS) -}}
           <content:encoded>
@@ -81,7 +93,7 @@
               {{ (printf "<![CDATA[%s]]>" $cover) | safeHTML }}
           {{- end -}}
           {{- if site.Params.ShowFullTextinRSS }}
-               {{ (printf "<![CDATA[%s]]>" .Content) | safeHTML }}
+               {{ (printf "<![CDATA[%s]]>" $page.Content) | safeHTML }}
           {{- end -}}
           </content:encoded>
       {{- end }}
