@@ -13,6 +13,8 @@ menu:
       url: https://blog.vindex10.me/categories/bits/
       weight: 20
 params:
+  TaxonomiesInRSS: ["tags"]
+  ShowFullTextinRSS: true
   cover:
     responsiveImages: true
     linkFullImages: post
