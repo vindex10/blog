@@ -10,7 +10,7 @@ menu:
       weight: 10
     - identifier: microblog
       name: Microblog
-      url: https://blog.vindex10.me/categories/bits/
+      url: /microblog/
       weight: 20
 params:
   TaxonomiesInRSS: ["tags"]
@@ -18,3 +18,5 @@ params:
   cover:
     responsiveImages: true
     linkFullImages: post
+  mainSections:
+    - posts
