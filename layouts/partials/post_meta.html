@@ -1,23 +1,34 @@
-{{- $scratch := newScratch }}
+{{- $isFirst := true }}
 
 {{- if not .Date.IsZero -}}
-{{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+{{- if not $isFirst }}
+&nbsp;·&nbsp;
+{{- end }}
+{{- (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat))) | safeHTML }}
+{{- $isFirst = false }}
 {{- end }}
 
 {{- if (.Param "ShowReadingTime") -}}
-{{- $scratch.Add "meta" (slice (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
+{{- if not $isFirst }}
+&nbsp;·&nbsp;
+{{- end }}
+{{- i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime) }}
+{{- $isFirst = false }}
 {{- end }}
 
 {{- if (.Param "ShowWordCount") -}}
-{{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
+{{- if not $isFirst }}
+&nbsp;·&nbsp;
+{{- end }}
+{{- slice (i18n "words" .WordCount | default (printf "%d words" .WordCount)) }}
 {{- end }}
 
 {{- if not (.Param "hideAuthor") -}}
 {{- with (partial "author.html" .) }}
-{{- $scratch.Add "meta" (slice .) }}
+{{- if not $isFirst }}
+&nbsp;·&nbsp;
+{{- end }}
+{{- . }}
+{{- $isFirst = false }}
 {{- end }}
 {{- end }}
-
-{{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
-{{- end -}}
