@@ -1,7 +1,9 @@
 baseURL: https://cave.vindex10.me
 languageCode: en-us
 title: Victor's Cave
-theme: papermod 
+theme: papermod
+enableEmoji: true
+summaryLength: 200
 menu:
   main:
     - identifier: posts
@@ -15,6 +17,8 @@ menu:
 params:
   TaxonomiesInRSS: ["tags"]
   ShowFullTextinRSS: true
+  entrySummaryRows: 8
+  onlyRenderedShortSummaries: true
   cover:
     responsiveImages: true
     linkFullImages: post
