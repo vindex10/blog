@@ -61,10 +61,19 @@
     color: var(--secondary);
     font-size: 14px;
     line-height: 1.6;
+    position: relative;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--entry-summary-rows);
+}
+
+.entry-content dl,
+.entry-content ol,
+.entry-content p,
+.entry-content figure,
+.entry-content ul {
+    margin-bottom: var(--content-gap-summary);
 }
 
 .entry-footer {
@@ -82,6 +91,19 @@
 
 .entry-hint {
     color: var(--secondary);
+}
+
+.entry-content-on-top .entry-content {
+    z-index: 1;
+}
+
+.entry-content-on-top .entry-link {
+    z-index: 0;
+}
+
+.entry-cover,
+.entry-isdraft {
+    font-size: 14px;
 }
 
 .entry-hint-parent {
