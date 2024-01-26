@@ -64,6 +64,7 @@
 {{- end }}
 
 <article class="{{ $class }}{{ cond site.Params.onlyRenderedShortSummaries " entry-content-on-top" "" }}">
+  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
   {{- $isHidden := (.Param "cover.hidden" | default (.Param "cover.hiddenInList")) }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
   <header class="entry-header">
@@ -93,7 +94,6 @@
     {{- partial "post_meta.html" . -}}
   </footer>
   {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
 {{- end }}
 
