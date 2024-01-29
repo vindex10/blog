@@ -20,7 +20,7 @@ params:
   entrySummaryRows: 8
   onlyRenderedShortSummaries: true
   cover:
-    responsiveImages: true
+    responsiveImages: false
     linkFullImages: post
   mainSections:
     - posts
