@@ -4,7 +4,9 @@ date: 2023-05-27T08:03:35+01:00
 tags:
   - scitisfaction
 ---
-\#scitisfaction [HN](https://news.ycombinator.com/item?id=36088135)
+\#scitisfaction
+
+[HN](https://news.ycombinator.com/item?id=36088135)
 
 [en.wikipedia.org/wiki/Bios...](https://en.wikipedia.org/wiki/Biosphere_2)
 

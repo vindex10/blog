@@ -4,7 +4,9 @@ date: 2023-05-27T07:41:43+01:00
 tags:
   - artinstinctive
 ---
-\#artinstinctive [HN](https://news.ycombinator.com/item?id=36089414)
+\#artinstinctive
+
+[HN](https://news.ycombinator.com/item?id=36089414)
 
 > 0ad is always the first listed package of linux distro repos (in alphabetical order). That might have helped with discoverability
 

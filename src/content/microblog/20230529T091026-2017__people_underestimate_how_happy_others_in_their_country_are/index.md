@@ -8,7 +8,9 @@ cover:
   relative: true
 ---
 
-\#scitisfaction [HN](https://news.ycombinator.com/item?id=36103530)
+\#scitisfaction
+
+[HN](https://news.ycombinator.com/item?id=36103530)
 
 
 

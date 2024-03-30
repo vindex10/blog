@@ -5,6 +5,8 @@ tags:
   - artinstinctive
 ---
 
-\#artinstinctive [HN](https://news.ycombinator.com/item?id=36118470)
+\#artinstinctive
+
+[HN](https://news.ycombinator.com/item?id=36118470)
 
 [mslivo.itch.io/setris](https://mslivo.itch.io/setris)
