@@ -6,7 +6,7 @@ cd "$SCRIPTPATH"
 function init() {
     mkdir -p dist/hugo
     pushd dist/hugo
-    v=0.122.0
+    v=0.140.2
     name="hugo_extended_${v}_linux-amd64.tar.gz"
     wget "https://github.com/gohugoio/hugo/releases/download/v${v}/$name"
     tar -xvzf $name

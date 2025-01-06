@@ -14,6 +14,10 @@ menu:
       name: Microblog
       url: /microblog/
       weight: 20
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 params:
   TaxonomiesInRSS: ["tags"]
   ShowFullTextinRSS: true

@@ -1,3 +1,4 @@
 *.lock
 dist/
 src/resources/_gen
+src/public
