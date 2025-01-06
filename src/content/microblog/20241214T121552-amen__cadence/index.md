@@ -1,5 +1,5 @@
 ---
-title: \"Amen\" cadence
+title: '"Amen" cadence'
 date: 2024-12-14T12:15:52.853000
 tags:
   - artinstinctive

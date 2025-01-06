@@ -75,7 +75,7 @@ the installer. Let's investigate log now.
 23263 write(1, "CHECK_DPKG: dpkg-query tool is '"..., 34) = 34
 ```
 
-We notice that `dpkg-query` is the tool used by the installer to check dependencies. Let's create a dummy `dpkg-query`<a name="dpkg-query-mock" />
+We notice that `dpkg-query` is the tool used by the installer to check dependencies. Let's create a dummy <a id="dpkg-query-mock" name="dpkg-query-mock">`dpkg-query`</a>
 and put it in the one of the locations checked by the installer. Let's return some high enough version tag, just in case :)
 
 ```bash
@@ -113,7 +113,7 @@ When I followed this way for the first time, I had to run the installer from Doc
 522   openat(AT_FDCWD, "/etc/debian_version", O_RDONLY) = 18
 ```
 
-Nice, so we should mock `/etc/debian_version`<a name="debian-version" />:
+Nice, so we should mock <a id="debian-version" name="debian-version">`/etc/debian_version`</a>:
 
 ```bash
 # cat /etc/debian_version
@@ -140,7 +140,7 @@ in the `install.log` we discover check for `/etc/issue`:
 522   lseek(18, 27, SEEK_SET)           = 27
 ```
 
-Great, let's mock it too. Here is an example of `/etc/issue`<a name="etc-issue" />:
+Great, let's mock it too. Here is an example of <a id="etc-issue" name="etc-issue">`/etc/issue`</a>:
 
 ```bash
 # cat /etc/issue
@@ -153,7 +153,7 @@ as a template.
 
 After mocking `/etc/debian_version` and `/etc/issue`, "Unsupported OS" error is gone. Congratulations!
 
-## Alternative ways<a name="alternative-ways" />
+## Alternative ways
 
 ### Docker
 
