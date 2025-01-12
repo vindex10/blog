@@ -4,6 +4,7 @@ title: Victor's Cave
 theme: papermod
 enableEmoji: true
 summaryLength: 200
+CapitalizeListTitles: false
 menu:
   main:
     - identifier: posts
